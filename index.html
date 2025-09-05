@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Check-in por QR Code – Avulso</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>Check-in – <span id="eventName">Avulso</span></h1>
+
+    <section class="controls">
+      <label>
+        Câmera:
+        <select id="cameraSelect"></select>
+      </label>
+      <button id="btnStart">Iniciar Leitura</button>
+      <button id="btnStop" disabled>Parar</button>
+      <div class="hint">Dica: aproxime o QR do centro do vídeo.</div>
+    </section>
+
+    <section class="preview">
+      <video id="video" playsinline></video>
+      <canvas id="canvas" class="hidden"></canvas>
+    </section>
+
+    <section class="status">
+      <div id="statusBadge" class="badge">Aguardando…</div>
+      <div id="guestInfo" class="guest"></div>
+    </section>
+
+    <section class="manual">
+      <h2>Entrada manual (fallback)</h2>
+      <input id="manualCode" type="text" placeholder="Digite ou cole o código" />
+      <button id="btnManual">Validar código</button>
+    </section>
+
+    <footer>
+      <small>Versão: <span id="appMode">SIMPLER</span> · © Você</small>
+    </footer>
+  </main>
+
+  <!-- Por padrão: modo SIMPLER -->
+  <script src="app.js"></script>
+  <!-- Para Firebase (persistente), comente a linha acima e descomente a abaixo: -->
+  <!-- <script type="module" src="app.firebase.js"></script> -->
+</body>
+</html>
